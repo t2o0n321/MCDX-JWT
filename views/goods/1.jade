@@ -1,0 +1,18 @@
+.col.mb-5
+    .card.h-100
+        img.card-img-top(src='./images/jpknife.jpg', alt='...')
+        .card-body.p-4
+            .text-center
+                // Product name
+                h5.fw-bolder 魔鋼の刀
+                // Product price
+                | $ 2000000
+            // Product actions
+            .card-footer.p-4.pt-0.border-top-0.bg-transparent
+                .text-center
+                    //- if user not logged in 
+                    if toShow == '登入'
+                        a.btn.btn-outline-dark.mt-auto(href='/api/auth/login') More Info
+                    else 
+                        a.btn.btn-outline-dark.mt-auto(href='/shop/buy/1') More Info
+                    

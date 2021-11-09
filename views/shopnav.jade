@@ -1,0 +1,34 @@
+div
+        //- navbar
+    nav(class="navbar navbar-expand-md navbar-light")
+        a(href="/shop", class="navbar-brand")
+            img(src="/images/logo.svg", alt="", height="30", width="24")
+        a(href="/shop", class="navbar-brand") 矮人
+            span(style="color: #58C2FF; font-weight: bold;") 工坊
+        button(
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#toggleMobileMenu"
+            aria-controls="toggleMobileMenu"
+            aria-expanded="false"
+            aria-lable="Toggle navigation"
+        )
+            span(class="navbar-toggler-icon")
+        div(class="collapse navbar-collapse" id="toggleMobileMenu")
+            ul(class="navbar-nav ms-auto text-left")
+                li 
+                    a(href="/shop", class="nav-link") 工坊
+                li 
+                    a(href="#", class="nav-link") 武器強化
+                li 
+                    if toShow == '登入'
+                        a(href="/api/auth/login", class="nav-link") #{toShow}
+                    else 
+                        a(href="/users/profile", class="nav-link") #{toShow}
+            if toShow == '登入'
+                a(href="/api/auth/login")
+                    img(src="/images/default_profile_normal.png", alt="default_profile", class="d-inline-block align-top rounded-circle")
+            else 
+                a(href="/users/profile")
+                    img(src="/images/userprofile/#{toShow}.jpg", alt="user_img", class="d-inline-block align-top rounded-circle")

@@ -1,0 +1,24 @@
+title Login
+
+body 
+    .container 
+        h2.page-header Login
+        p Please login
+        form(name="f" method="post" onSubmit="return checker()" action="/api/auth/login/v")
+            //- userName
+            div(class="form-group" style="margin-top: 20px;") 
+                lable(for="userName") Name
+                input(type="text" class="form-control" name="userName" id="userName" placeholder="Your Name")
+            //- password
+            div(class="form-group" style="margin-top: 20px;")
+                lable(for="password") Password
+                input(type="password" class="form-control" name="password" id="password" placeholder="Password") 
+                //- submit btn
+            div(class="form-group" style="margin-top: 20px;")
+                button(type="submit" class="btn btn-primary") Login
+                a(href="/users/register" style="text-decoration: none; float: right;")
+                    span Not a Member ? Join now !
+    
+
+script(src="/javascripts/loginCheck.js") 
+link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", crossorigin="anonymous")

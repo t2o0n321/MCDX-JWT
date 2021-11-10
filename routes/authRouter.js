@@ -14,7 +14,6 @@ function createRouter(dependencies) {
         var password = req.body.password
         var token = verifyUser(user, password)
         if (token.length != 0) {
-            // res.json({ token })
             res.cookie('token', token, {
                 httpOnly: true,
                 maxAge: conf.settings['jwt_expire_in'],
@@ -43,7 +42,6 @@ function verifyUser(user, password) {
     }
     return ''
 }
-
 
 module.exports = {
     createRouter: createRouter

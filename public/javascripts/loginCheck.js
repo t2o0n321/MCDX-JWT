@@ -7,7 +7,6 @@ function inputIsNull() {
 }
 
 function checker() {
-    // remove former alert element
     removeFormerAlert()
     if (inputIsNull()) {
         var alertBar = document.createElement('div')

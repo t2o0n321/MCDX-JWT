@@ -27,7 +27,6 @@ router.get('/buy/:name/cash', function(req, res, next) {
         var usercredit = userinfo['credit']
         var price = goodsdata[req.params.name]['price']
 
-        // not enough
         if (usercredit <= price) {
             res.render('buyalert')
         } else {

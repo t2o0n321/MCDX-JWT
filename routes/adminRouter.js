@@ -6,13 +6,11 @@ const tools = require('../middlewares/admintool')
 function createRouter(dependencies) {
     var {} = dependencies
     router.route('/ctrl')
-        .get(function (req, res) {
+        .get(function(req, res) {
             var token = verifyJwt.verify(req.cookies.token)
 
-            // not logged in
             if (!token) {
-                res.location('/api/auth/login')
-                res.redirect('/api/auth/login')
+                res.status(404).send(`You don't have permission to access this page`)
             } else {
                 var privilege = token['privilege']
                 var user = token['user']
@@ -23,24 +21,24 @@ function createRouter(dependencies) {
                 }
             }
         })
-        .post(function (req, res) {
+        .post(function(req, res) {
             var token = verifyJwt.verify(req.cookies.token)
 
-            if(!token){
+            if (!token) {
                 res.location('/api/auth/login')
                 res.redirect('/api/auth/login')
-            }else{
+            } else {
                 var privilege = token['privilege']
                 var user = token['user']
                 if (privilege === 0) {
                     res.status(404).send(`You don't have permission to access this page`)
                 } else {
                     var domain = req.body.domain
-                    try{
-                        tools.nslookup(domain, (data)=>{
+                    try {
+                        tools.nslookup(domain, (data) => {
                             res.render('./admin/ctrlPanel', { toShow: user, nsResult: data })
                         })
-                    }catch(e){
+                    } catch (e) {
                         res.render('./admin/ctrlPanel', { toShow: user, nsResult: '' })
                     }
                 }

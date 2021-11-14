@@ -4,6 +4,7 @@
 # Environment
 - [NodeJS](https://nodejs.org/en/)
 # Setup
+- ``cd path_to_folder``
 - ``sudo apt-get update``
 - ``sudo apt-get install -y nodejs``
 - ``sudo apt-get install npm``

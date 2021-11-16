@@ -1,3 +1,7 @@
-[ 2021-11-17 01:45:42 ] [ localhost:9999 ] http://localhost:9999/ is alive
-[ 2021-11-17 01:45:42 ] [ localhost:9999 ] Could not connect to http://localhost:9999/
-[ 2021-11-17 01:45:42 ] [ localhost:9999 ] Web server closed
+[ 2021-11-16 11:31:33 ] [ localhost:9999 ] http://localhost:9999/is alive
+[ 2021-11-16 11:31:33 ] [ localhost:9999 ] http://localhost:9999/shopis alive
+[ 2021-11-16 11:31:33 ] [ localhost:9999 ] http://localhost:9999/usersis alive
+[ 2021-11-16 11:31:33 ] [ localhost:9999 ] http://localhost:9999/api/auth/loginis alive
+[ 2021-11-16 11:31:33 ] [ localhost:9999 ] http://localhost:9999/api/auth/logoutis alive
+[ 2021-11-16 11:31:33 ] [ localhost:9999 ] http://localhost:9999/admin/ctrlis alive
+[ 2021-11-16 11:31:53 ] [ localhost:9999 ] Cannot connect to http://localhost:9999/ ...

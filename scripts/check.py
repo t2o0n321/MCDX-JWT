@@ -1,8 +1,6 @@
+from tools import basic
+import requests
 import sys
-import os
-import time
-sys.path.append(os.path.dirname(__file__) + '/utils')
-from utils.tools import basic
 
 if __name__ == '__main__':
     
@@ -14,8 +12,16 @@ if __name__ == '__main__':
         '/api/auth/logout',
         '/admin/ctrl'
     ]
+
+    ip = sys.argv[1]
+    port = sys.argv[2]
     
-    while True:
-        for i in checkRoutes:
-            basic.connect(i, './check.log')
-        time.sleep(3)
+    for i in checkRoutes:
+        url = 'http://' + ip +':'+ port + i
+        try:
+            r = requests.get(url)
+            basic.writeLog('check.log', url + 'is alive')
+        except:
+            basic.writeLog('check.log', 'Cannot connect to ' + url + ' ...')
+            exit(0)
+    exit(1)

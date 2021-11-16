@@ -35,11 +35,11 @@ class basic:
                 basic.writeLog(logPath, 'Can\'t access ' + url)
             else:
                 basic.writeLog(logPath, url + ' is alive')
-            return 0
+            exit(1)
         except:
             basic.writeLog(logPath, 'Could not connect to '+url)
             basic.writeLog(logPath, 'Web server closed')
-            return -1
+            exit(0)
         
 # eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjk5OSwidXNlciI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMXBhc3N3b3JkIiwiZW1haWwiOiJ1c2VyMUBleGFtcGxlLmNvbSIsImNyZWRpdCI6OTk5OTk5LCJwcml2aWxlZ2UiOjF9.P0l99ua5G2EtIdFgIEGPOQHHh41aSHIz7YOTUT3Rphk
 class MyJWT:
@@ -56,14 +56,14 @@ class MyJWT:
         
         url = 'http://' + ip + ':' + port + target_route
         
-        patchedOrNot = -1
+        patchedOrNot = 0
         
         try:
             req = requests.get(url, cookies = {'token': self.__generateToken()})
             # check jwt
             if req.status_code == 404:
                 basic.writeLog('./patch.log', 'Cannot request ' + url + ' with hacker\'s token !')
-                patchedOrNot = 0
+                patchedOrNot = 1
             else:
                 basic.writeLog('./patch.log', 'Still can request ' + url + ' with hacker\'s token')
                 basic.writeLog('./patch.log', 'JWT still work with ' + url)
@@ -86,5 +86,5 @@ class MyJWT:
             req.close()
         except:
             basic.writeLog('./patch.log', 'Cannot check jwt issue for ' + url + ' cause web server closed')
-        return patchedOrNot
+        exit(patchedOrNot)
     

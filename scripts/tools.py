@@ -24,25 +24,25 @@ class basic:
         except:
             print('Cannot open file : ' + filename)
         
-    def connect(page_route, logPath):
-        # ip = sys.argv[1]
-        # port = sys.argv[2]
-        ip = 'localhost'
-        port = '9999'
+    # def connect(page_route, logPath):
+    #     # ip = sys.argv[1]
+    #     # port = sys.argv[2]
+    #     ip = 'localhost'
+    #     port = '9999'
         
-        url = 'http://' + ip +':'+ port + page_route
-        try:
-            r = requests.get(url)
-            r.close()
-            if(r.status_code == 404):
-                basic.writeLog(logPath, 'Can\'t access ' + url)
-            else:
-                basic.writeLog(logPath, url + ' is alive')
-            exit(1)
-        except:
-            basic.writeLog(logPath, 'Could not connect to '+url)
-            basic.writeLog(logPath, 'Web server closed')
-            exit(0)
+    #     url = 'http://' + ip +':'+ port + page_route
+    #     try:
+    #         r = requests.get(url)
+    #         r.close()
+    #         if(r.status_code == 404):
+    #             basic.writeLog(logPath, 'Can\'t access ' + url)
+    #         else:
+    #             basic.writeLog(logPath, url + ' is alive')
+    #         exit(1)
+    #     except:
+    #         basic.writeLog(logPath, 'Could not connect to '+url)
+    #         basic.writeLog(logPath, 'Web server closed')
+    #         exit(0)
         
 # eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjk5OSwidXNlciI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMXBhc3N3b3JkIiwiZW1haWwiOiJ1c2VyMUBleGFtcGxlLmNvbSIsImNyZWRpdCI6OTk5OTk5LCJwcml2aWxlZ2UiOjF9.P0l99ua5G2EtIdFgIEGPOQHHh41aSHIz7YOTUT3Rphk
 class MyJWT:

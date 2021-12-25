@@ -30,8 +30,7 @@ router.get('/buy/:name/cash', function(req, res, next) {
         if (usercredit <= price) {
             res.render('buyalert')
         } else {
-            var flag = '<div>N3v3R_PUt_c0nf1d3nT_!nfo_ins!de_jwt_token_and_pass_to_cookie</div>'
-            res.send(flag)
+            res.send('<script>Yeah, you buy it !</script>')
         }
 
     } else {

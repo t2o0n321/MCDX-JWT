@@ -30,9 +30,10 @@ router.get('/buy/:name/cash', function(req, res, next) {
         if (usercredit <= price) {
             res.render('buyalert')
         } else {
-            res.send('<script>Yeah, you buy it !</script>')
+            var success = `<script>alert('Yeah, you buy it !')</script>`;
+            res.send(success);
         }
-
+        
     } else {
         res.status(404).send('please login first')
     }
